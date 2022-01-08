@@ -23,6 +23,8 @@ function App() {
   const user = useSelector((state) => state.user.data);
   const searchRef = useRef();
   const search = useSelector((state) => state.search.value);
+  const dark = useSelector((state) => state.theme.darkMode);
+
   // const [user, setUser] = useState({});
   // const [query, setQuery] = useState("octocat");
 
@@ -47,7 +49,7 @@ function App() {
   }, [search, dispatch]);
 
   return (
-    <div className="App">
+    <div className={`App ${dark && "dark"}`}>
       <Container
         handleSearch={handleSearch}
         searchRef={searchRef}

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const UserContent = () => {
   const user = useSelector((state) => state.user.data);
   return (
-    <div className="content">
+    <div className={`content`}>
       <div className="profile">
         <div className="profile_frame">
           <img

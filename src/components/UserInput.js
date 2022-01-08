@@ -1,13 +1,24 @@
 import React from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { toggleDark } from "../store/themeSlice";
 const UserInput = ({ searchRef, handleSearch }) => {
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.theme.darkMode);
+  const toggleTheme = () => {
+    dispatch(toggleDark());
+  };
   return (
     <>
       <div className="header">
         <h4>devfinder</h4>
         <div className="darkMode">
-          <p id="modeText">DARK</p>
-          <img src="./assets/icon-moon.svg" id="dark_btn" alt="" />
+          <p id="modeText">{darkMode ? "LIGHT" : "DARK"}</p>
+          <img
+            onClick={toggleTheme}
+            src={!darkMode ? "/assets/icon-moon.svg" : "/assets/icon-sun.svg"}
+            id="dark_btn"
+            alt=""
+          />
         </div>
       </div>
 
